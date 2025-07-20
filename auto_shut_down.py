@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 
 def shutdown_pc():
-    """Shutdown the PC using system commands"""
+    #Shutdown the PC using system commands
     try:
         if os.name == 'nt':  # Windows
             os.system("shutdown /s /t 1")
@@ -18,13 +18,13 @@ def shutdown_pc():
 
 
 def countdown_timer(hours=2):
-    """Countdown timer with live display"""
+    #Countdown timer with live display
     total_seconds = hours * 3600  # Convert hours to seconds
 
     # Calculate end time
     end_time = datetime.now() + timedelta(seconds=total_seconds)
-    print(f"🕐 PC will shutdown at: {end_time.strftime('%I:%M:%S %p')}")
-    print("⚠️  Press Ctrl+C to cancel the shutdown timer\n")
+    print(f" PC will shutdown at: {end_time.strftime('%I:%M:%S %p')}")
+    print(" Press Ctrl+C to cancel the shutdown timer\n")
 
     try:
         while total_seconds > 0:
@@ -35,7 +35,7 @@ def countdown_timer(hours=2):
 
             # Display countdown
             time_str = f"{hours_left:02d}:{minutes_left:02d}:{seconds_left:02d}"
-            print(f"\r⏳ Time remaining: {time_str}", end="", flush=True)
+            print(f"\r Time remaining: {time_str}", end="", flush=True)
 
             # Wait 1 second
             time.sleep(1)
